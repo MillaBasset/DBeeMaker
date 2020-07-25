@@ -8,6 +8,13 @@ Simply open the .exe or .jar included in the release. Then:
 - Select a .csv file.
 - Click **"Append entry!"** to write the entry to your file.
 
+## Changelog
+**Version 0.2**
+- Added the ability to create a new .csv file.
+
+**Version 0.1**
+- Initial release
+
 ## Credits
 - [manuGMG](https://github.com/manuGMG) and their [beeShop](https://github.com/manuGMG/beeShop), for inspiring this project.
 - [TimmSkiller](https://github.com/TimmSkiller) for being an all around nice guy and helping me make this in a short time.
