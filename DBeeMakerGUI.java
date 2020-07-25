@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.regex.*;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -175,6 +176,9 @@ public class DBeeMakerGUI {
 		} else if (key.getText().contains(",")) {
 			JOptionPane.showMessageDialog(null, "Your title contains a comma. Please try a different title.");
 			key.setText(null);
+		} else if (Pattern.matches("https?://[.+.]?.+\\..+/.+", value.getText())) {
+			JOptionPane.showMessageDialog(null, "Your link is not valid. Please try a different link.");
+			value.setText(null);
 		} else if (value.getText().contains(",")) {
 			JOptionPane.showMessageDialog(null, "Your link contains a comma. Please try a different link.");
 			value.setText(null);
