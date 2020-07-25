@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,7 +26,7 @@ public class DBeeMakerGUI {
 		ImageIcon icon = new ImageIcon("icon.png");
 		
 		JFrame jf = new JFrame("DBeeMaker");
-		jf.setSize(600, 500);
+		jf.setSize(600, 540);
 		jf.setResizable(false);
 		jf.setLocation(300, 200);
 		jf.setIconImage(icon.getImage());
@@ -100,11 +101,11 @@ public class DBeeMakerGUI {
 		jp6.setBackground(darkGray);
 		main.add(jp6);
 		
-		JButton jb = new JButton("Append entry!");
-		jb.setFont(bigFont);
-		jb.setBackground(lightGray);
-		jb.setForeground(beeYellow);
-		jb.addActionListener((ActionEvent ae) -> { writeRow(jfc, jtf1, jtf2); });
+		JButton jb1 = new JButton("Append entry!");
+		jb1.setFont(bigFont);
+		jb1.setBackground(lightGray);
+		jb1.setForeground(beeYellow);
+		jb1.addActionListener((ActionEvent ae) -> { writeRow(jfc, jtf1, jtf2); });
 		
 		JPanel jp7 = new JPanel();
 		jp7.setBackground(darkGray);
@@ -130,6 +131,20 @@ public class DBeeMakerGUI {
 		jl9.setFont(smallFont);
 		jl9.setForeground(beeYellow);
 		
+		JPanel jp10 = new JPanel();
+		jp10.setBackground(darkGray);
+		main.add(jp10);
+		
+		JLabel jl11 = new JLabel("Don't have a .csv file?");
+		jl11.setFont(mediumFont);
+		jl11.setForeground(beeYellow);
+		
+		JButton jb3 = new JButton("Create a file.");
+		jb3.setFont(mediumFont);
+		jb3.setBackground(lightGray);
+		jb3.setForeground(beeYellow);
+		jb3.addActionListener((ActionEvent ae) -> { createFile(); });
+		
 		jp1.add(jl1);
 		jp1.add(jl2);
 		jp2.add(jl3);
@@ -140,10 +155,12 @@ public class DBeeMakerGUI {
 		jp5.add(jl6);
 		jp5.add(jb2);
 		jp5.add(jl10);
-		jp6.add(jb);
+		jp6.add(jb1);
 		jp7.add(jl7);
 		jp8.add(jl8);
 		jp9.add(jl9);
+		jp10.add(jl11);
+		jp10.add(jb3);
 		
 		jf.setVisible(true);
 	}
@@ -176,6 +193,33 @@ public class DBeeMakerGUI {
 			JOptionPane.showMessageDialog(null, "Entry written successfully!");
 			key.setText(null);
 			value.setText(null);
+		}
+	}
+	
+	public static void createFile() {
+		String fileName = JOptionPane.showInputDialog("Enter the absolute or relative path to your new file.\n"
+				+ "The .csv extension is not required, but can be inputted.");
+		boolean fileCreated;
+		if (fileName.substring(fileName.length() - 4).equals(".csv")) {
+			File f = new File(fileName);
+			try {
+				fileCreated = f.createNewFile();
+			} catch (IOException e) {
+				fileCreated = false;
+			}
+		} else {
+			File f = new File(fileName + ".csv");
+			try {
+				fileCreated = f.createNewFile();
+			} catch (IOException e) {
+				fileCreated = false;
+			}
+		}
+		if (fileCreated) {
+			JOptionPane.showMessageDialog(null, "The file was created successfully!");
+		} else {
+			JOptionPane.showMessageDialog(null, "Some error occurred while trying to create the file.\n"
+					+ "Maybe the file already exists, or you inputted an invalid name.");
 		}
 	}
 }
