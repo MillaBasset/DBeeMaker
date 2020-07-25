@@ -176,7 +176,7 @@ public class DBeeMakerGUI {
 		} else if (key.getText().contains(",")) {
 			JOptionPane.showMessageDialog(null, "Your title contains a comma. Please try a different title.");
 			key.setText(null);
-		} else if (Pattern.matches("https?://[.+.]?.+\\..+/.+", value.getText())) {
+		} else if (!Pattern.matches("https?://[.+.]?.+\\..+/.+", value.getText())) {
 			JOptionPane.showMessageDialog(null, "Your link is not valid. Please try a different link.");
 			value.setText(null);
 		} else if (value.getText().contains(",")) {
