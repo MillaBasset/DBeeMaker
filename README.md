@@ -14,5 +14,5 @@ Simply open the .exe or .jar included in the release. Then:
 - To all the people who checked out this silly little project. Thank y'all!
 
 ## Gallery
-![Alt](https://i.gyazo.com/thumb/1200/7c37ff402bea6bd0d6ab3513fec9885b-png.jpg "UI")  
+![Alt](https://i.gyazo.com/88fbcf731f20b3e320af0b9f81e1f216.png "UI")  
 ![Alt](/icon.png "Bee")
