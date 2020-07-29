@@ -9,7 +9,7 @@ Simply open the .exe or .jar included in the release. Then:
 - Click **"Append entry!"** to write the entry to your file.
 
 ## Changelog
-**Version 0.3 (Unreleased, but committed to source)**
+**Version 0.3**
 - Added valid link checking.
 
 **Version 0.2**
